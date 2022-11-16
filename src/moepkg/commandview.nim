@@ -1,4 +1,3 @@
-import std/[terminal]
 import editorstatus, unicodeext, commandviewutils, ui, color, commandline
 
 proc suggestCommandLine(status: var Editorstatus,
