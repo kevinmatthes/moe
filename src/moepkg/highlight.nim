@@ -1,4 +1,4 @@
-import std/[sequtils, os, parseutils]
+import std/[sequtils, os, strformat, parseutils]
 import syntax/highlite
 import unicodeext, color
 from std/strutils import find
