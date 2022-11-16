@@ -1,6 +1,6 @@
-import std/[sugar, critbits, options, sequtils, strutils]
+import std/[critbits, strutils]
 import pkg/unicodedb/properties
-import unicodeext, bufferstatus, algorithm, osext
+import bufferstatus, algorithm, osext
 import syntax/[highlite, syntaxnim, syntaxc, syntaxcpp, syntaxcsharp,
                syntaxjava, syntaxpython, syntaxjavascript]
 
