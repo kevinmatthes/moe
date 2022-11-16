@@ -1,7 +1,5 @@
 import std/[unittest, strutils]
-import moepkg/[editorstatus, gapbuffer, unicodeext, movement, window,
-               bufferstatus]
-
+import moepkg/[unicodeext]
 include moepkg/help
 
 suite "Help":
