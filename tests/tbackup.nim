@@ -1,5 +1,4 @@
-import std/[unittest, sequtils]
-import moepkg/unicodeext
+import std/[unittest]
 include moepkg/backup
 
 suite "Backup: createDir":
