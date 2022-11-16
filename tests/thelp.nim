@@ -1,5 +1,4 @@
 import std/[unittest, strutils]
-import moepkg/[unicodeext]
 include moepkg/help
 
 suite "Help":
