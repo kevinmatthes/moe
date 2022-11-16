@@ -1,5 +1,5 @@
-import std/[unittest, macros]
-include moepkg/autocomplete
+import std/[macros, options, sequtils, sugar, unittest]
+import moepkg/[autocomplete, unicodeext]
 
 const code = ru"""proc fibonacci(n: int): int =
   if n == 0: return 0
