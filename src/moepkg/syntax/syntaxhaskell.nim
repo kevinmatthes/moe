@@ -25,7 +25,6 @@ const
                      ]
 
 proc haskellNextToken*(g: var GeneralTokenizer) =
-proc haskellNextToken*(g: var GeneralTokenizer) =
   const
     hexChars = {'0'..'9', 'A'..'F', 'a'..'f'}
     octChars = {'0'..'7'}
