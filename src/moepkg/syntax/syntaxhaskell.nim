@@ -74,8 +74,17 @@ proc haskellNextToken*(g: var GeneralTokenizer) =
         g.kind = gtLongComment
         var nested = 0
         inc(pos)
+        if g.buf[pos] == '#':
+          g.kind = gtPreprocessor
         while true:
           case g.buf[pos]
+          of '#':
+            inc(pos)
+            if g.buf[pos] == '-' and g.kind == gtPreprocessor:
+              inc (pos)
+              if g.buf[pos] == '}':
+                inc (pos)
+                if nested == 0: break
           of '-':
             inc(pos)
             if g.buf[pos] == '}':
