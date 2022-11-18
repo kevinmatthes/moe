@@ -48,6 +48,8 @@ proc pythonNextToken*(g: var GeneralTokenizer) =
       while g.buf[pos] in {' ', '\x09'..'\x0D'}: inc(pos)
     of '#':
       g.kind = gtComment
+      inc(pos)
+      if g.buf[pos] == '!': g.kind = gtPreprocessor
       while not (g.buf[pos] in {'\0', '\x0A', '\x0D'}): inc(pos)
     of 'a'..'z', 'A'..'Z', '_', '\x80'..'\xFF':
       var id = ""
