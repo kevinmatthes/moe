@@ -86,7 +86,7 @@ type
     pos*: int
     state*: TokenClass
 
-  SourceLanguage* = enum
+  SourceLanguage* = enum langNone,
     langC,
     langCpp,
     langCsharp,
@@ -95,14 +95,13 @@ type
     langJavaScript,
     langMarkDown,
     langNim,
-    langNone,
     langPython,
     langRust,
     langShell,
     langYaml,
 
 const
-  sourceLanguageToStr*: array[SourceLanguage, string] = [
+  sourceLanguageToStr*: array[SourceLanguage, string] = [ "none",
     "C",
     "C++",
     "C#",
@@ -111,7 +110,6 @@ const
     "JavaScript",
     "MarkDown",
     "Nim",
-    "none",
     "Python",
     "Rust",
     "Shell",
