@@ -97,6 +97,7 @@ type
     langNim,
     langNone,
     langPython,
+    langRust,
     langShell,
     langYaml,
 
