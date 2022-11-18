@@ -113,6 +113,7 @@ const
     "Nim",
     "none",
     "Python",
+    "Rust",
     "Shell",
     "Yaml",
   ]
