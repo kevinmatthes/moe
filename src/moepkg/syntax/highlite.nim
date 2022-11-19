@@ -195,8 +195,8 @@ proc isKeyword*(x: openArray[string], y: string): int =
 
 type
   TokenizerFlag* = enum
-    hasDoubleHashComments,
     hasDoubleHashBracketComments,
+    hasDoubleHashComments,
     hasHashBracketComments,
     hasNestedComments,
     hasPreprocessor,
