@@ -101,6 +101,9 @@ type
     langYaml,
 
 const
+  ## Characters ending a line.
+  eolChars* = {'\0', '\x0A', '\x0D'}
+
   sourceLanguageToStr*: array[SourceLanguage, string] = [ "none",
     "C",
     "C++",
@@ -192,7 +195,11 @@ proc isKeyword*(x: openArray[string], y: string): int =
 
 type
   TokenizerFlag* = enum
-    hasPreprocessor, hasNestedComments
+    hasDoubleHashComments,
+    hasNestedComments,
+    hasPreprocessor,
+    hasShebang,
+
   TokenizerFlags* = set[TokenizerFlag]
 
 import syntaxc, syntaxcpp, syntaxcsharp, syntaxhaskell, syntaxjava,
