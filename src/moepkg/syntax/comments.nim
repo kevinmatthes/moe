@@ -26,7 +26,7 @@ from highlite import
   TokenClass,
   TokenizerFlag,
   TokenizerFlags,
-  eolChars,
+  eolChars
 
 
 
@@ -40,7 +40,57 @@ proc endLine(tokeniser: GeneralTokenizer, initialPosition: int): int =
   var position = initialPosition
 
   while tokeniser.buf[position] notin eolChars:
-    inc(position)
+    inc position
+
+  result = position
+
+
+
+## Parse a nested comment, introduced by two hash characters.
+##
+## This comment begins with ``##[`` and is ended by ``]##``.  These comments
+## can be nested.
+##
+## Languages like Nim support this type.
+
+proc parseDoubleHashBracketComment(tokeniser: var GeneralTokenizer, initialPosition: int): int =
+  var position = initialPosition
+
+  if tokeniser.buf[position] == '[':
+    var depth = 0
+    tokeniser.kind = gtStringLit
+
+    while true:
+      case tokeniser.buf[position]
+      of '\0':
+        break
+
+      of '#':
+        inc position
+
+        if tokeniser.buf[position] == '#':
+          inc position
+
+          if tokeniser.buf[position] == '[':
+            inc depth
+            inc position
+
+      of ']':
+        inc position
+
+        if tokeniser.buf[position] == '#':
+          inc position
+
+          if tokeniser.buf[position] == '#':
+            inc position
+
+            if depth == 0:
+              break
+            else:
+              dec depth
+
+      else:
+        inc position
 
   result = position
 
@@ -53,12 +103,61 @@ proc endLine(tokeniser: GeneralTokenizer, initialPosition: int): int =
 ##
 ## Languages like Nim use this comment type for documentation comments.
 
-proc parseDoubleHashLine(tokeniser: var GeneralTokenizer, initialPosition: int): int =
+proc parseDoubleHashLine(tokeniser: var GeneralTokenizer, initialPosition: int, nested: bool): int =
   var position = initialPosition
 
   if tokeniser.buf[position] == '#':
     tokeniser.kind = gtStringLit
-    position = endLine(tokeniser, position)
+    inc position
+
+    if tokeniser.buf[position] == '[' and nested:
+      position = parseDoubleHashBracketComment(tokeniser, position)
+    else:
+      position = endLine(tokeniser, position)
+
+  result = position
+
+
+
+## Parse a nested comment.
+##
+## This comment type begins with ``#[`` and ends with ``]#``.  These comments
+## can be nested within each other.
+##
+## Languages like Nim support this type.
+
+proc parseHashBracketComment(tokeniser: var GeneralTokenizer, initialPosition: int): int =
+  var position = initialPosition
+
+  if tokeniser.buf[position] == '[':
+    var depth = 0
+    tokeniser.kind = gtLongComment
+
+    while true:
+      case tokeniser.buf[position]
+      of '\0':
+        break
+
+      of '#':
+        inc position
+
+        if tokeniser.buf[position] == '[':
+          inc depth
+          inc position
+
+      of ']':
+        inc position
+
+        if tokeniser.buf[position] == '#':
+          inc position
+
+          if depth == 0:
+            break
+          else:
+            dec depth
+
+      else:
+        inc position
 
   result = position
 
@@ -101,12 +200,18 @@ proc parseHashLineComment*(tokeniser: var GeneralTokenizer,
 
   if tokeniser.buf[position] == '#':
     tokeniser.kind = gtComment
-    inc(position)
+    inc position
 
     case tokeniser.buf[position]
     of '#':
       if hasDoubleHashComments in flags:
-        position = parseDoubleHashLine(tokeniser, position)
+        position = parseDoubleHashLine(tokeniser, position, hasDoubleHashBracketComments in flags)
+      else:
+        position = endLine(tokeniser, position)
+
+    of '[':
+      if hasHashBracketComments in flags:
+        position = parseHashBracketComment(tokeniser, position)
       else:
         position = endLine(tokeniser, position)
 
