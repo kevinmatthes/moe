@@ -102,7 +102,7 @@ type
 
 const
   ## Characters ending a line.
-  eolChars* = {'\0', '\x0A', '\x0D'}
+  eolChars*: set[char] = {'\0', '\n', '\r'}
 
   sourceLanguageToStr*: array[SourceLanguage, string] = [ "none",
     "C",
@@ -196,6 +196,8 @@ proc isKeyword*(x: openArray[string], y: string): int =
 type
   TokenizerFlag* = enum
     hasDoubleHashComments,
+    hasDoubleHashBracketComments,
+    hasHashBracketComments,
     hasNestedComments,
     hasPreprocessor,
     hasShebang,
