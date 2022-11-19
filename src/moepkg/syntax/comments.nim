@@ -53,7 +53,8 @@ proc endLine(tokeniser: GeneralTokenizer, initialPosition: int): int =
 ##
 ## Languages like Nim support this type.
 
-proc parseDoubleHashBracketComment(tokeniser: var GeneralTokenizer, initialPosition: int): int =
+proc parseDoubleHashBracketComment(tokeniser: var GeneralTokenizer,
+    initialPosition: int): int =
   var position = initialPosition
 
   if tokeniser.buf[position] == '[':
@@ -103,7 +104,8 @@ proc parseDoubleHashBracketComment(tokeniser: var GeneralTokenizer, initialPosit
 ##
 ## Languages like Nim use this comment type for documentation comments.
 
-proc parseDoubleHashLine(tokeniser: var GeneralTokenizer, initialPosition: int, nested: bool): int =
+proc parseDoubleHashLine(tokeniser: var GeneralTokenizer, initialPosition: int,
+    nested: bool): int =
   var position = initialPosition
 
   if tokeniser.buf[position] == '#':
@@ -126,7 +128,8 @@ proc parseDoubleHashLine(tokeniser: var GeneralTokenizer, initialPosition: int, 
 ##
 ## Languages like Nim support this type.
 
-proc parseHashBracketComment(tokeniser: var GeneralTokenizer, initialPosition: int): int =
+proc parseHashBracketComment(tokeniser: var GeneralTokenizer,
+    initialPosition: int): int =
   var position = initialPosition
 
   if tokeniser.buf[position] == '[':
@@ -179,8 +182,8 @@ proc parseShebangLine(tokeniser: var GeneralTokenizer,
   var position = initialPosition
 
   if tokeniser.buf[position] == '!':
-      tokeniser.kind = gtPreprocessor
-      position = endLine(tokeniser, position)
+    tokeniser.kind = gtPreprocessor
+    position = endLine(tokeniser, position)
 
   result = position
 
@@ -205,7 +208,8 @@ proc parseHashLineComment*(tokeniser: var GeneralTokenizer,
     case tokeniser.buf[position]
     of '#':
       if hasDoubleHashComments in flags:
-        position = parseDoubleHashLine(tokeniser, position, hasDoubleHashBracketComments in flags)
+        position = parseDoubleHashLine(tokeniser, position,
+            hasDoubleHashBracketComments in flags)
       else:
         position = endLine(tokeniser, position)
 
