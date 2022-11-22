@@ -61,6 +61,7 @@ const
                               , hasDoubleHashComments
                               , hasHashBracketComments
                               , hasHashComments
+                              , hasNestedComments
                               }
 
   ## The lexing rules for Python.
