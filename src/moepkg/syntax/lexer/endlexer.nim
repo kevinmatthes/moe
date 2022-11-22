@@ -34,11 +34,6 @@ from ../highlite import
 #
 
 ## Proceed until the end of the current line.
-##
-## In case of line comments, the whole rest of the line belongs to the comment.
-## Thus, until the end of line is reached, every character belongs to the
-## line comment token.
-
 proc endLine*(lexer: GeneralTokenizer, position: int): int =
   result = position
 
@@ -47,11 +42,7 @@ proc endLine*(lexer: GeneralTokenizer, position: int): int =
 
 
 
-## Skip line whitespace characters, these are spaces and tabs.
-##
-## In most languages, the line whitespaces characters are unimportant for lexing
-## the source code.  Thus, these characters can be savely skipped.
-
+## Proceed until the end of the line whitespace sequence.
 proc endLWS*(lexer: GeneralTokenizer, position: int): int =
   result = position
 
