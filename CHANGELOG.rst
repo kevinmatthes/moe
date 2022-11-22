@@ -30,6 +30,10 @@
 .. _#1475: https://github.com/fox0430/moe/pull/1475
 .. _#1476: https://github.com/fox0430/moe/pull/1476
 .. _#1477: https://github.com/fox0430/moe/pull/1477
+.. _#1478: https://github.com/fox0430/moe/pull/1478
+.. _#1479: https://github.com/fox0430/moe/pull/1479
+.. _#1480: https://github.com/fox0430/moe/pull/1480
+.. _#1481: https://github.com/fox0430/moe/pull/1481
 ..
 .. -------------------------------------------------------------------------- ..
 
@@ -55,10 +59,14 @@ Added
 
 - `#1477`_ syntax highlighting:  Nim standard libraries
 
+- `#1480`_ log support
+
 Changed
 .......
 
 - `#1470`_ refactoring
+
+- `#1481`_ refactoring
 
 Deprecated
 ..........
@@ -72,8 +80,12 @@ Fixed
 
 - `#1474`_ compiler options
 
+- `#1478`_ various typos
+
 Removed
 .......
+
+- `#1479`_ obsolete ``defer``
 
 Security
 ........
