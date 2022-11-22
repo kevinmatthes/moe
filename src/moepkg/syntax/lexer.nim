@@ -41,8 +41,8 @@ from lexer/hashlexer import
 ## Lex a hash character (``#``).
 ##
 ## Depending on the respective language's lexing rules, determined by its flags,
-## a hash character might either be the introduction of a comment, the beginning
-## of a preprocessor instruction, or just a punctuation sign.
+## a hash character might either be the introduction of a comment or just a
+## punctuation sign.
 
 proc lexHash*(lexer: var GeneralTokenizer, position: int,
     flags: TokenizerFlags): int =
