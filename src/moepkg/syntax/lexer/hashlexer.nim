@@ -44,6 +44,10 @@ from ../highlite import
 ##
 ## This comment type starts with ``##[`` and ends with ``]##``.  Some languages
 ## allow for nesting.
+##
+## Languages supporting this type are:
+##
+## - Nim
 
 proc lexDoubleHashBracketComment(lexer: GeneralTokenizer, position: int, nested: bool): int =
   var depth = 0
@@ -93,9 +97,13 @@ proc lexDoubleHashBracketComment(lexer: GeneralTokenizer, position: int, nested:
 ## This comment type starts with ``##`` and automatically ends by the end of the
 ## respective line.
 ##
-## In case that opening token should be followed by an opening square bracket, a
+## In case this opening token should be followed by an opening square bracket, a
 ## redirection to the corresponding comment type will take place in case that it
-## should be supported.
+## should be supported by the respective language.
+##
+## Languages supporting this type are:
+##
+## - Nim
 
 proc lexDoubleHashLineComment(lexer: GeneralTokenizer, position: int, flags: TokenizerFlags): int =
   result = position
@@ -118,6 +126,10 @@ proc lexDoubleHashLineComment(lexer: GeneralTokenizer, position: int, flags: Tok
 ##
 ## This comment type starts with ``#[`` and ends with ``]#``.  Some languages
 ## allow for nesting.
+##
+## Languages supporting this type are:
+##
+## - Nim
 
 proc lexHashBracketComment(lexer: GeneralTokenizer, position: int, nested: bool): int =
   var depth = 0
@@ -161,6 +173,12 @@ proc lexHashBracketComment(lexer: GeneralTokenizer, position: int, nested: bool)
 ## This function should be the lexing entry point for all languages which have
 ## comments introduced by a ``#``.  In case that actually another comment type
 ## is present, the control flow will be redirected appropriately.
+##
+## Languages supporting this type are:
+##
+## - Nim
+## - Python
+## - YAML
 
 proc lexHashLineComment*(lexer: var GeneralTokenizer, position: int,
     flags: TokenizerFlags): int =
