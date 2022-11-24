@@ -51,6 +51,11 @@
 .. _#1501: https://github.com/fox0430/moe/pull/1501
 .. _#1502: https://github.com/fox0430/moe/pull/1502
 .. _#1503: https://github.com/fox0430/moe/pull/1503
+.. _#1505: https://github.com/fox0430/moe/pull/1505
+.. _#1506: https://github.com/fox0430/moe/pull/1506
+.. _#1507: https://github.com/fox0430/moe/pull/1507
+.. _#1508: https://github.com/fox0430/moe/pull/1508
+.. _#1509: https://github.com/fox0430/moe/pull/1509
 ..
 .. -------------------------------------------------------------------------- ..
 
@@ -80,16 +85,26 @@ Added
 
 - `#1489`_ support live reloading for open files
 
+- `#1505`_ disable automatic backups by default
+
 Changed
 .......
 
 - `#1470`_ refactoring
 
-- `#1481`_ refactoring
+- `#1481`_ refactoring:  style
 
 - `#1501`_ update README
 
 - `#1503`_ update README
+
+- `#1506`_ path for automatic backups
+
+- `#1507`_ update CI
+
+- `#1508`_ dependency version:  ``unicodedb`` v0.11.1
+
+- `#1509`_ refactoring:  settings logic
 
 Deprecated
 ..........
