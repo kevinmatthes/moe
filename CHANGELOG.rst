@@ -60,6 +60,12 @@
 .. _#1511: https://github.com/fox0430/moe/pull/1511
 .. _#1512: https://github.com/fox0430/moe/pull/1512
 .. _#1513: https://github.com/fox0430/moe/pull/1513
+.. _#1517: https://github.com/fox0430/moe/pull/1517
+.. _#1518: https://github.com/fox0430/moe/pull/1518
+.. _#1519: https://github.com/fox0430/moe/pull/1519
+.. _#1520: https://github.com/fox0430/moe/pull/1520
+.. _#1521: https://github.com/fox0430/moe/pull/1521
+.. _#1522: https://github.com/fox0430/moe/pull/1522
 ..
 .. -------------------------------------------------------------------------- ..
 
@@ -92,6 +98,10 @@ Added
 - `#1505`_ disable automatic backups by default
 
 - `#1512`_ ``bufferStatus.isEditMode``
+
+- `#1517`_ Dependabot:  GitHub Action setup
+
+- `#1520`_ Dependabot:  target branch for setup
 
 Changed
 .......
@@ -151,6 +161,14 @@ Fixed
 - `#1499`_ VS Code themes
 
 - `#1500`_ build error with Nim development version
+
+- `#1518`_ obsolete conversions and most redundant imports
+
+- `#1519`_ crash on call to help command
+
+- `#1521`_ Dependabot:  configuration
+
+- `#1522`_ C++ source files extensions
 
 Removed
 .......
