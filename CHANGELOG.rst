@@ -75,6 +75,12 @@
 .. _#1532: https://github.com/fox0430/moe/pull/1532
 .. _#1533: https://github.com/fox0430/moe/pull/1533
 .. _#1534: https://github.com/fox0430/moe/pull/1534
+.. _#1536: https://github.com/fox0430/moe/pull/1536
+.. _#1538: https://github.com/fox0430/moe/pull/1538
+.. _#1539: https://github.com/fox0430/moe/pull/1539
+.. _#1540: https://github.com/fox0430/moe/pull/1540
+.. _#1541: https://github.com/fox0430/moe/pull/1541
+.. _#1543: https://github.com/fox0430/moe/pull/1543
 ..
 .. -------------------------------------------------------------------------- ..
 
@@ -120,6 +126,10 @@ Added
 
 - `#1531`_ syntax highlighting:  Rust
 
+- `#1540`_ syntax highlighting:  module for lexer flags
+
+- `#1541`_ CFF:  add Rust book reference
+
 Changed
 .......
 
@@ -150,6 +160,10 @@ Changed
 - `#1533`_ syntax highlighting:  comment lexing logic
 
 - `#1534`_ syntax highlighting:  Rust
+
+- `#1536`_ syntax highlighting:  YAML comment lexing logic
+
+- `#1543`_ syntax highlighting:  Haskell comment lexing logic
 
 Deprecated
 ..........
@@ -196,6 +210,10 @@ Fixed
 - `#1522`_ syntax highlighting:  C++ source files extensions
 
 - `#1526`_ syntax highlighting:  crash on YAML files with single quotes
+
+- `#1538`_ syntax highlighting:  crash on Rust files with lifetime parameter
+
+- `#1539`_ CI:  dependency updates
 
 Removed
 .......
