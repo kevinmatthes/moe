@@ -56,6 +56,10 @@
 .. _#1507: https://github.com/fox0430/moe/pull/1507
 .. _#1508: https://github.com/fox0430/moe/pull/1508
 .. _#1509: https://github.com/fox0430/moe/pull/1509
+.. _#1510: https://github.com/fox0430/moe/pull/1510
+.. _#1511: https://github.com/fox0430/moe/pull/1511
+.. _#1512: https://github.com/fox0430/moe/pull/1512
+.. _#1513: https://github.com/fox0430/moe/pull/1513
 ..
 .. -------------------------------------------------------------------------- ..
 
@@ -87,6 +91,8 @@ Added
 
 - `#1505`_ disable automatic backups by default
 
+- `#1512`_ ``bufferStatus.isEditMode``
+
 Changed
 .......
 
@@ -105,6 +111,10 @@ Changed
 - `#1508`_ dependency version:  ``unicodedb`` v0.11.1
 
 - `#1509`_ refactoring:  settings logic
+
+- `#1510`_ rename "History Manager" to "Backup Manager"
+
+- `#1511`_ dependency source:  ``parsetoml`` official
 
 Deprecated
 ..........
@@ -157,5 +167,7 @@ Removed
 
 Security
 ........
+
+- `#1513`_ reduce GitHub Action permissions
 
 .. -------------------------------------------------------------------------- ..
