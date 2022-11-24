@@ -34,6 +34,12 @@
 .. _#1479: https://github.com/fox0430/moe/pull/1479
 .. _#1480: https://github.com/fox0430/moe/pull/1480
 .. _#1481: https://github.com/fox0430/moe/pull/1481
+.. _#1484: https://github.com/fox0430/moe/pull/1484
+.. _#1485: https://github.com/fox0430/moe/pull/1485
+.. _#1486: https://github.com/fox0430/moe/pull/1486
+.. _#1487: https://github.com/fox0430/moe/pull/1487
+.. _#1488: https://github.com/fox0430/moe/pull/1488
+.. _#1489: https://github.com/fox0430/moe/pull/1489
 ..
 .. -------------------------------------------------------------------------- ..
 
@@ -61,6 +67,8 @@ Added
 
 - `#1480`_ log support
 
+- `#1489`_ support live reloading for open files
+
 Changed
 .......
 
@@ -82,10 +90,22 @@ Fixed
 
 - `#1478`_ various typos
 
+- `#1484`_ automatically disable clipboard functionality if no clipboard tools
+  are available
+
+- `#1485`_ automatically skip clipboard tests if no clipboard tools are
+  available
+
+- `#1488`_ CI triggers
+
 Removed
 .......
 
 - `#1479`_ obsolete ``defer``
+
+- `#1486`_ Japanese comments
+
+- `#1487`_ website
 
 Security
 ........
