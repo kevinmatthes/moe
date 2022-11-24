@@ -66,6 +66,15 @@
 .. _#1520: https://github.com/fox0430/moe/pull/1520
 .. _#1521: https://github.com/fox0430/moe/pull/1521
 .. _#1522: https://github.com/fox0430/moe/pull/1522
+.. _#1525: https://github.com/fox0430/moe/pull/1525
+.. _#1526: https://github.com/fox0430/moe/pull/1526
+.. _#1527: https://github.com/fox0430/moe/pull/1527
+.. _#1528: https://github.com/fox0430/moe/pull/1528
+.. _#1530: https://github.com/fox0430/moe/pull/1530
+.. _#1531: https://github.com/fox0430/moe/pull/1531
+.. _#1532: https://github.com/fox0430/moe/pull/1532
+.. _#1533: https://github.com/fox0430/moe/pull/1533
+.. _#1534: https://github.com/fox0430/moe/pull/1534
 ..
 .. -------------------------------------------------------------------------- ..
 
@@ -103,6 +112,14 @@ Added
 
 - `#1520`_ Dependabot:  target branch for setup
 
+- `#1525`_ syntax highlighting:  Haskell
+
+- `#1528`_ syntax highlighting:  further file extensions
+
+- `#1530`_ CFF
+
+- `#1531`_ syntax highlighting:  Rust
+
 Changed
 .......
 
@@ -122,9 +139,17 @@ Changed
 
 - `#1509`_ refactoring:  settings logic
 
-- `#1510`_ rename "History Manager" to "Backup Manager"
+- `#1510`_ rename:  "History Manager" → "Backup Manager"
 
 - `#1511`_ dependency source:  ``parsetoml`` official
+
+- `#1527`_ syntax highlighting:  Python
+
+- `#1532`_ syntax highlighting:  update
+
+- `#1533`_ syntax highlighting:  comment lexing logic
+
+- `#1534`_ syntax highlighting:  Rust
 
 Deprecated
 ..........
@@ -169,6 +194,8 @@ Fixed
 - `#1521`_ Dependabot:  configuration
 
 - `#1522`_ C++ source files extensions
+
+- `#1526`_ crash on YAML files with single quotes
 
 Removed
 .......
