@@ -17,10 +17,17 @@
 ..                                                                            ..
 .. -------------------------------------------------------------------------- ..
 
-.. -------------------------------------------------------------------------- ..
-..
+Changelog
+=========
+
 .. _Keep a Changelog: https://keepachangelog.com/en/1.0.0/
-..
+
+All notable changes to this project are documented in this file.  The format is
+based on `Keep a Changelog`_.
+
+Unreleased
+----------
+
 .. _#1468: https://github.com/fox0430/moe/pull/1468
 .. _#1469: https://github.com/fox0430/moe/pull/1469
 .. _#1470: https://github.com/fox0430/moe/pull/1470
@@ -81,17 +88,7 @@
 .. _#1540: https://github.com/fox0430/moe/pull/1540
 .. _#1541: https://github.com/fox0430/moe/pull/1541
 .. _#1543: https://github.com/fox0430/moe/pull/1543
-..
-.. -------------------------------------------------------------------------- ..
-
-Changelog
-=========
-
-All notable changes to this project are documented in this file.  The format is
-based on `Keep a Changelog`_.
-
-Unreleased
-----------
+.. _#1544: https://github.com/fox0430/moe/pull/1544
 
 Added
 .....
@@ -130,6 +127,8 @@ Added
 
 - `#1541`_ CFF:  add Rust book reference
 
+- `#1544`_ CHANGELOG:  setup
+
 Changed
 .......
 
@@ -164,9 +163,6 @@ Changed
 - `#1536`_ syntax highlighting:  YAML comment lexing logic
 
 - `#1543`_ syntax highlighting:  Haskell comment lexing logic
-
-Deprecated
-..........
 
 Fixed
 .....
