@@ -40,6 +40,9 @@
 .. _#1487: https://github.com/fox0430/moe/pull/1487
 .. _#1488: https://github.com/fox0430/moe/pull/1488
 .. _#1489: https://github.com/fox0430/moe/pull/1489
+.. _#1491: https://github.com/fox0430/moe/pull/1491
+.. _#1493: https://github.com/fox0430/moe/pull/1493
+.. _#1494: https://github.com/fox0430/moe/pull/1494
 ..
 .. -------------------------------------------------------------------------- ..
 
@@ -97,6 +100,12 @@ Fixed
   available
 
 - `#1488`_ CI triggers
+
+- `#1491`_ crash on auto-indentation in some cases
+
+- `#1493`_ missing visual mode after yanking lines
+
+- `#1494`_ QuickRun
 
 Removed
 .......
