@@ -92,19 +92,19 @@ Added
 
 - `#1468`_ syntax highlighting:  Nim pragmas
 
-- `#1473`_ auto-completion for language keywords
+- `#1473`_ auto-completion:  language keywords
 
-- `#1475`_ sort auto-completion suggestion by count of usage
+- `#1475`_ auto-completion:  sort suggestions by count of usage
 
-- `#1476`_ path auto-completion
+- `#1476`_ auto-completion:  paths
 
 - `#1477`_ syntax highlighting:  Nim standard libraries
 
-- `#1480`_ log support
+- `#1480`_ logging support
 
-- `#1489`_ support live reloading for open files
+- `#1489`_ live reloading:  support for open files
 
-- `#1505`_ disable automatic backups by default
+- `#1505`_ automatic backups:  disabled by default
 
 - `#1512`_ ``bufferStatus.isEditMode``
 
@@ -116,7 +116,7 @@ Added
 
 - `#1528`_ syntax highlighting:  further file extensions
 
-- `#1530`_ CFF
+- `#1530`_ CFF:  setup
 
 - `#1531`_ syntax highlighting:  Rust
 
@@ -127,13 +127,13 @@ Changed
 
 - `#1481`_ refactoring:  style
 
-- `#1501`_ update README
+- `#1501`_ README:  update
 
-- `#1503`_ update README
+- `#1503`_ README:  update
 
-- `#1506`_ path for automatic backups
+- `#1506`_ automatic backups:  path
 
-- `#1507`_ update CI
+- `#1507`_ CI:  update
 
 - `#1508`_ dependency version:  ``unicodedb`` v0.11.1
 
@@ -157,45 +157,45 @@ Deprecated
 Fixed
 .....
 
-- `#1469`_ warning concerning imported but unused module ``strformat``
+- `#1469`_ warning:  imported but unused module ``strformat``
 
-- `#1472`_ import instructions
+- `#1472`_ style:  import instructions
 
-- `#1474`_ compiler options
+- `#1474`_ build:  compiler options
 
-- `#1478`_ various typos
+- `#1478`_ documentation:  various typos
 
-- `#1484`_ automatically disable clipboard functionality if no clipboard tools
-  are available
+- `#1484`_ clipboard:  automatically disable clipboard functionality if no
+  clipboard tools are available
 
-- `#1485`_ automatically skip clipboard tests if no clipboard tools are
+- `#1485`_ CI:  automatically skip clipboard tests if no clipboard tools are
   available
 
-- `#1488`_ CI triggers
+- `#1488`_ CI:  triggers
 
-- `#1491`_ crash on auto-indentation in some cases
+- `#1491`_ crash:  crash on auto-indentation in some cases
 
-- `#1493`_ missing visual mode after yanking lines
+- `#1493`_ visual mode:  mode missing after yanking lines
 
 - `#1494`_ QuickRun
 
-- `#1496`_ menu margins in configuration mode
+- `#1496`_ configuration mode:  menu margins
 
-- `#1498`_ suggestion logic in execution mode
+- `#1498`_ execution mode:  suggestion logic
 
-- `#1499`_ VS Code themes
+- `#1499`_ colour theme:  VS Code
 
-- `#1500`_ build error with Nim development version
+- `#1500`_ build error:  build with Nim development version
 
-- `#1518`_ obsolete conversions and most redundant imports
+- `#1518`_ style:  obsolete conversions and most redundant imports
 
-- `#1519`_ crash on call to help command
+- `#1519`_ crash:  call to help command
 
 - `#1521`_ Dependabot:  configuration
 
-- `#1522`_ C++ source files extensions
+- `#1522`_ syntax highlighting:  C++ source files extensions
 
-- `#1526`_ crash on YAML files with single quotes
+- `#1526`_ syntax highlighting:  crash on YAML files with single quotes
 
 Removed
 .......
@@ -213,6 +213,6 @@ Removed
 Security
 ........
 
-- `#1513`_ reduce GitHub Action permissions
+- `#1513`_ CI:  reduce GitHub Action permissions
 
 .. -------------------------------------------------------------------------- ..
