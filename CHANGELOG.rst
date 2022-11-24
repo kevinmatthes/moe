@@ -43,6 +43,14 @@
 .. _#1491: https://github.com/fox0430/moe/pull/1491
 .. _#1493: https://github.com/fox0430/moe/pull/1493
 .. _#1494: https://github.com/fox0430/moe/pull/1494
+.. _#1496: https://github.com/fox0430/moe/pull/1496
+.. _#1497: https://github.com/fox0430/moe/pull/1497
+.. _#1498: https://github.com/fox0430/moe/pull/1498
+.. _#1499: https://github.com/fox0430/moe/pull/1499
+.. _#1500: https://github.com/fox0430/moe/pull/1500
+.. _#1501: https://github.com/fox0430/moe/pull/1501
+.. _#1502: https://github.com/fox0430/moe/pull/1502
+.. _#1503: https://github.com/fox0430/moe/pull/1503
 ..
 .. -------------------------------------------------------------------------- ..
 
@@ -79,6 +87,10 @@ Changed
 
 - `#1481`_ refactoring
 
+- `#1501`_ update README
+
+- `#1503`_ update README
+
 Deprecated
 ..........
 
@@ -107,6 +119,14 @@ Fixed
 
 - `#1494`_ QuickRun
 
+- `#1496`_ menu margins in configuration mode
+
+- `#1498`_ suggestion logic in execution mode
+
+- `#1499`_ VS Code themes
+
+- `#1500`_ build error with Nim development version
+
 Removed
 .......
 
@@ -115,6 +135,10 @@ Removed
 - `#1486`_ Japanese comments
 
 - `#1487`_ website
+
+- `#1497`_ Japanese comments
+
+- `#1502`_ Japanese commit message
 
 Security
 ........
