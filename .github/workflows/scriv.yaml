@@ -23,8 +23,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  #contents: write
+  contents: write
 
 jobs:
   changelog:
@@ -53,10 +52,10 @@ jobs:
       - name: commit
         run: git commit -am 'Increment version'
 
-      #- name: push
-      #  uses: ad-m/github-push-action@v0.6.0
-      #  with:
-      #    github_token: ${{ secrets.GITHUB_TOKEN }}
-      #    branch: ${{ github.ref }}
+      - name: push
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
 
 ################################################################################
