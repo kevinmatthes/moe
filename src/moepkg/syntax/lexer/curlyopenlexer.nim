@@ -35,6 +35,58 @@ from ../highlite import
 # Procedures.
 #
 
+## Lex a curly dash preprocessor instruction.
+##
+## This comment type starts with ``{-#`` and ends with ``#-}``.  Some languages
+## allow for nesting.
+##
+## Languages supporting this type are:
+##
+## - Haskell
+
+proc lexCurlyDashPreprocessor(lexer: GeneralTokenizer, position: int,
+    nested: bool): int =
+  var depth = 0
+  result = position
+
+  if lexer.buf[result] == '#':
+    inc result
+
+    while true:
+      case lexer.buf[result]
+      of '\0':
+        break
+
+      of '#':
+        inc result
+
+        if lexer.buf[result] == '-':
+          inc result
+
+          if lexer.buf[result] == '}':
+            inc result
+
+            if depth == 0:
+              break
+            elif nested:
+              dec depth
+
+      of '{':
+        inc result
+
+        if lexer.buf[result] == '-':
+          inc result
+
+          if lexer.buf[result] == '#':
+            inc result
+
+            if nested:
+              inc depth
+      else:
+        inc result
+
+
+
 ## Lex a curly dash comment.
 ##
 ## This comment type starts with ``{-`` and ends with ``-}``.  Some languages
@@ -55,40 +107,7 @@ proc lexCurlyDashComment*(lexer: var GeneralTokenizer, position: int,
 
     if lexer.buf[result] == '#' and hasPreprocessor in flags:
       lexer.kind = gtPreprocessor
-      inc result
-
-      while true:
-        case lexer.buf[result]
-        of '\0':
-          break
-
-        of '#':
-          inc result
-
-          if lexer.buf[result] == '-':
-            inc result
-
-            if lexer.buf[result] == '}':
-              inc result
-
-              if depth == 0:
-                break
-              elif nested:
-                dec depth
-
-        of '{':
-          inc result
-
-          if lexer.buf[result] == '-':
-            inc result
-
-            if lexer.buf[result] == '#':
-              inc result
-
-              if nested:
-                inc depth
-        else:
-          inc result
+      result = lexCurlyDashPreprocessor(lexer, result, nested)
     else:
       if lexer.buf[result] == '|':
         if hasCurlyDashPipeComments in flags:
