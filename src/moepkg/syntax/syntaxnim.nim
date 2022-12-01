@@ -103,7 +103,7 @@ const
     "defined", "echo", "equalMem", "equalmem", "excl", "expr", "fileHandle",
     "find", "float", "float32", "float64", "getCurrentException", "getFilePos",
     "getFileSize", "getFreeMem", "getOccupiedMem", "getRefcount", "getTotalMem",
-    "guarded","high", "hostCPU", "hostOS", "inc", "incl", "inf", "int",
+    "guarded", "high", "hostCPU", "hostOS", "inc", "incl", "inf", "int",
     "int16",
     "int32", "int64", "int8", "isNil", "items", "len", "lines", "low", "max",
     "min", "moveMem", "movemem", "nan", "neginf", "new", "newSeq", "newString",
@@ -345,7 +345,7 @@ proc nimNextToken*(g: var GeneralTokenizer) =
         g.kind = gtOperator
         while g.buf[pos] in OpChars: inc(pos)
         let ep = pos
-        if sp + 1 == ep and g.buf[sp] == '*' and g.buf[ep] == '(' :
+        if sp + 1 == ep and g.buf[sp] == '*' and g.buf[ep] == '(':
           g.kind = gtSpecialVar
       else:
         inc(pos)
