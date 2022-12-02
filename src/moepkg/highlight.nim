@@ -227,7 +227,7 @@ proc initHighlight*(buffer: string,
 
   if language == SourceLanguage.langNone or
      language == SourceLanguage.langShell or
-     language == SourceLanguage.langMarkDown:
+     language == SourceLanguage.langMarkdown:
     splitByNewline(buffer, EditorColorPair.defaultChar)
     return result
 
@@ -311,7 +311,7 @@ proc detectLanguage*(filename: string): SourceLanguage =
   of ".js", ".ts":
     return SourceLanguage.langJavaScript
   of ".markdown", ".md":
-    return SourceLanguage.langMarkDown
+    return SourceLanguage.langMarkdown
   of ".nim", ".nimble", ".nims":
     return SourceLanguage.langNim
   of ".py", ".pyw", ".pyx":
