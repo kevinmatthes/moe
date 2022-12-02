@@ -1224,7 +1224,7 @@ proc updateHighlight*(highlight: var Highlight,
 
   # highlight trailing spaces
   if settings.highlight.trailingSpaces and
-     bufStatus.language != SourceLanguage.langMarkDown:
+     bufStatus.language != SourceLanguage.langMarkdown:
     highlight.highlightTrailingSpaces(bufStatus, windowNode)
 
   # highlight full width space
