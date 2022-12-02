@@ -40,8 +40,10 @@ type
     hasDoubleHashComments,
     hasHashBracketComments,
     hasHashComments,
+    hasHashHeadings,
     hasNestedComments,
     hasPreprocessor,
+    hasSharpBangDoubleDashComments,
     hasShebang,
 
 
@@ -69,6 +71,11 @@ const
                                   , hasNestedComments
                                   , hasPreprocessor
                                   }
+
+  ## The lexing rules for Markdown.
+  flagsMarkdown*: TokenizerFlags = { hasHashHeadings
+                                   , hasSharpBangDoubleDashComments
+                                   }
 
   ## The lexing rules for Nim.
   flagsNim*: TokenizerFlags = { hasDoubleHashBracketComments
