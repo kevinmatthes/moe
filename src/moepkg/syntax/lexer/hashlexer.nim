@@ -115,7 +115,8 @@ proc lexDoubleHashLineComment(lexer: GeneralTokenizer, position: int,
 
     if lexer.buf[result] == '[':
       if hasDoubleHashBracketComments in flags:
-        result = lexer.lexDoubleHashBracketComment(result, hasNestedComments in flags)
+        result = lexer.lexDoubleHashBracketComment(result,
+          hasNestedComments in flags)
       else:
         result = lexer.endLine(result)
     else:
