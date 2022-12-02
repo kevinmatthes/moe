@@ -197,7 +197,8 @@ proc isKeyword*(x: openArray[string], y: string): int =
   binarySearch(x, y)
 
 import syntaxc, syntaxcpp, syntaxcsharp, syntaxhaskell, syntaxjava,
-       syntaxjavascript, syntaxnim, syntaxpython, syntaxrust, syntaxyaml
+       syntaxjavascript, syntaxmarkdown, syntaxnim, syntaxpython, syntaxrust,
+       syntaxyaml
 proc getNextToken*(g: var GeneralTokenizer, lang: SourceLanguage) =
   case lang
   of langC: cNextToken(g)
@@ -206,6 +207,7 @@ proc getNextToken*(g: var GeneralTokenizer, lang: SourceLanguage) =
   of langHaskell: haskellNextToken(g)
   of langJava: javaNextToken(g)
   of langJavaScript: javaScriptNextToken(g)
+  of langMarkdown: markdownNextToken(g)
   of langNim: nimNextToken(g)
   of langNone: assert false
   of langPython: pythonNextToken(g)
