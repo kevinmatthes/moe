@@ -65,8 +65,8 @@ proc haskellNextToken*(g: var GeneralTokenizer) =
     of ' ', '\x09'..'\x0D':
       g.kind = gtWhitespace
       while g.buf[pos] in {' ', '\x09'..'\x0D'}: inc(pos)
-    of '-': pos = lexDash(g, pos, flagsHaskell)
-    of '{': pos = lexCurlyOpen(g, pos, flagsHaskell)
+    of '-': pos = g.lexDash(pos, flagsHaskell)
+    of '{': pos = g.lexCurlyOpen(pos, flagsHaskell)
     of 'a'..'z', 'A'..'Z', '_', '\x80'..'\xFF':
       var id = ""
       while g.buf[pos] in symChars:
