@@ -142,11 +142,6 @@ proc initGeneralTokenizer*(g: var GeneralTokenizer, buf: cstring) =
   while g.buf[pos] in {' ', '\x09'..'\x0D'}: inc(pos)
   g.pos = pos
 
-## Test whether this lexer is at the beginning of its buffer.
-proc isAtBeginOfBuffer*(g: GeneralTokenizer): bool =
-  let ltc = low(TokenClass)
-  result = g.kind == ltc and g.state == ltc and g.start == 0 and g.length == 0
-
 proc initGeneralTokenizer*(g: var GeneralTokenizer, buf: string) =
   initGeneralTokenizer(g, cstring(buf))
 
