@@ -61,7 +61,7 @@ proc lexCurlyOpen*(lexer: var GeneralTokenizer, position: int,
     if lexer.buf[result] == '-':
       if hasCurlyDashComments in flags:
         lexer.kind = gtLongComment
-        result = lexCurlyDashComment(lexer, result, flags)
+        result = lexer.lexCurlyDashComment(result, flags)
 
 
 
@@ -97,10 +97,10 @@ proc lexDash*(lexer: var GeneralTokenizer, position: int,
             if lexer.buf[result] == '^':
               lexer.kind = gtStringLit
 
-            result = endLine(lexer, result)
+            result = lexer.endLine(result)
       elif hasDoubleDashComments in flags:
         lexer.kind = gtComment
-        result = endLine(lexer, result)
+        result = lexer.endLine(result)
 
 
 
@@ -117,7 +117,7 @@ proc lexHash*(lexer: var GeneralTokenizer, position: int,
   if lexer.buf[result] == '#':
     if hasHashComments in flags:
       lexer.kind = gtComment
-      result = lexHashLineComment(lexer, result, flags)
+      result = lexer.lexHashLineComment(result, flags)
     elif hasHashHeadings in flags:
       lexer.kind = gtBuiltin
       result = lexer.endLine(result)
