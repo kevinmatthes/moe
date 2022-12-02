@@ -118,6 +118,9 @@ proc lexHash*(lexer: var GeneralTokenizer, position: int,
     if hasHashComments in flags:
       lexer.kind = gtComment
       result = lexHashLineComment(lexer, result, flags)
+    elif hasHashHeadings in flags:
+      lexer.kind = gtBuiltin
+      result = lexer.endLine(result)
     else:
       lexer.kind = gtPunctuation
       inc result
