@@ -78,14 +78,15 @@ proc lexDash*(lexer: var GeneralTokenizer, position: int,
   result = position
 
   if lexer.buf[result] == '-':
+    inc result
+
     if hasDashFunction in flags:
       lexer.kind = gtFunctionName
-    elif hasDashPunctuation in flags:
+    elif hasDashPunctuation in flags or lexer.state == gtIdentifier:
       lexer.kind = gtPunctuation
+      lexer.state = gtPunctuation
     else:
       lexer.kind = gtBuiltin
-
-    inc result
 
     if lexer.buf[result] == '-':
       inc result
@@ -103,6 +104,33 @@ proc lexDash*(lexer: var GeneralTokenizer, position: int,
       elif hasDoubleDashComments in flags:
         lexer.kind = gtComment
         result = lexer.endLine(result)
+
+      if lexer.buf[result] == '-':
+        inc result
+
+        if hasTripleDashPreprocessor in flags:
+          if hasPreprocessor in flags:
+            lexer.kind = gtPreprocessor
+          else:
+            lexer.kind = gtStringLit
+
+          while true:
+            case lexer.buf[result]
+            of '\0':
+              break
+
+            of '-':
+              inc result
+
+              if lexer.buf[result] == '-':
+                inc result
+
+                if lexer.buf[result] == '-':
+                  inc result
+                  break
+
+            else:
+              inc result
 
 
 
@@ -141,6 +169,7 @@ proc lexSymbol*(lexer: var GeneralTokenizer, position: int): int =
 
   if lexer.buf[result] in symChars:
     lexer.kind = gtIdentifier
+    lexer.state = gtIdentifier
 
     while lexer.buf[result] in symChars:
       add id, lexer.buf[result]
