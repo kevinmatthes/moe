@@ -27,7 +27,9 @@ from flags import
 
 from highlite import
   GeneralTokenizer,
-  TokenClass
+  TokenClass,
+  symChars,
+  wsChars
 
 from lexer/curlyopenlexer import
   lexCurlyDashComment
@@ -118,11 +120,51 @@ proc lexHash*(lexer: var GeneralTokenizer, position: int,
     if hasHashComments in flags:
       lexer.kind = gtComment
       result = lexer.lexHashLineComment(result, flags)
-    elif hasHashHeadings in flags:
+    elif hasHashHeadings in flags and lexer.state == gtWhitespace:
       lexer.kind = gtBuiltin
+      lexer.state = gtBuiltin
       result = lexer.endLine(result)
     else:
       lexer.kind = gtPunctuation
+      inc result
+
+
+
+## Lex a symbol.
+##
+## Symbols consist of alphanumeric characters as well as the underscore and the
+## second half of the ASCII table.
+
+proc lexSymbol*(lexer: var GeneralTokenizer, position: int): int =
+  var id = ""
+  result = position
+
+  if lexer.buf[result] in symChars:
+    lexer.kind = gtIdentifier
+
+    while lexer.buf[result] in symChars:
+      add id, lexer.buf[result]
+      inc result
+
+
+
+## Lex all whitespace characters.
+##
+## Numerous languages either do not care at all for whitespace characters or
+## only focus on them for indentation.  Thus, they can be skipped savely.
+
+proc lexWhitespace*(lexer: var GeneralTokenizer, position: int): int =
+  result = position
+
+  if lexer.buf[result] in wsChars:
+    lexer.kind = gtWhitespace
+
+    while lexer.buf[result] in wsChars:
+      if lexer.buf[result] == '\n':
+        lexer.state = gtWhitespace
+      else:
+        lexer.state = gtNone
+
       inc result
 
 #[############################################################################]#
