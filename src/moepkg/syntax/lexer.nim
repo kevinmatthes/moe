@@ -79,8 +79,6 @@ proc lexDash*(lexer: var GeneralTokenizer, position: int,
   result = position
 
   if lexer.buf[result] == '-':
-    inc result
-
     if hasDashFunction in flags:
       lexer.kind = gtFunctionName
     elif hasDashPunctuation in flags or lexer.state == gtIdentifier:
@@ -88,6 +86,8 @@ proc lexDash*(lexer: var GeneralTokenizer, position: int,
       lexer.state = gtPunctuation
     else:
       lexer.kind = gtBuiltin
+
+    inc result
 
     if lexer.buf[result] == '-':
       inc result
