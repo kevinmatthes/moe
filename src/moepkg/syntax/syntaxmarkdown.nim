@@ -29,6 +29,7 @@ from highlite import
   TokenClass
 
 from lexer import
+  lexDash,
   lexHash,
   lexSymbol,
   lexWhitespace
@@ -51,6 +52,8 @@ proc markdownNextToken*(lexer: var GeneralTokenizer) =
     position = lexer.lexWhitespace(position)
   of '#':
     position = lexer.lexHash(position, flagsMarkdown)
+  of '-':
+    position = lexer.lexDash(position, flagsMarkdown)
   of '(', ')', '[', ']', '{', '}', ':', ',', ';', '.', '/', '\'', '\"':
     lexer.kind = gtPunctuation
     inc position
