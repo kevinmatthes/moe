@@ -107,6 +107,10 @@ const
   ## Line whitespace characters.
   lwsChars*: set[char] = {'\t', ' '}
 
+  ## Common operators.
+  opChars* = {'+', '-', '*', '/', '\\', '<', '>', '!', '?', '^', '.',
+              '|', '=', '%', '&', '$', '@', '~', ':'}
+
   ## Characters denoting a symbol.
   symChars*: set[char] = { 'A' .. 'Z'
                          , 'a' .. 'z'
@@ -133,8 +137,6 @@ const
     "Yaml",
   ]
 
-  OpChars* = {'+', '-', '*', '/', '\\', '<', '>', '!', '?', '^', '.',
-              '|', '=', '%', '&', '$', '@', '~', ':'}
 
 
 proc getSourceLanguage*(name: string): SourceLanguage =
