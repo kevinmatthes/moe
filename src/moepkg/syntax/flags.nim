@@ -45,6 +45,9 @@ type
     hasNestedComments,
     hasPreprocessor,
     hasSharpBangDoubleDashComments,
+    hasSharpFunction,
+    hasSharpOperator,
+    hasSharpPunctuation,
     hasShebang,
     hasTripleBacktickFramedExpressions,
     hasTripleDashPreprocessor,
@@ -73,6 +76,7 @@ const
                                   , hasDoubleDashComments
                                   , hasNestedComments
                                   , hasPreprocessor
+                                  , hasSharpFunction
                                   }
 
   ## The lexing rules for Markdown.
@@ -90,11 +94,13 @@ const
                               , hasHashBracketComments
                               , hasHashComments
                               , hasNestedComments
+                              , hasSharpOperator
                               }
 
   ## The lexing rules for Python.
   flagsPython*: TokenizerFlags = { hasDoubleHashComments
                                  , hasHashComments
+                                 , hasSharpOperator
                                  , hasShebang
                                  }
 
