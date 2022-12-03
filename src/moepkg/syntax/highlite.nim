@@ -107,6 +107,17 @@ const
   ## Line whitespace characters.
   lwsChars*: set[char] = {'\t', ' '}
 
+  ## Characters denoting a symbol.
+  symChars*: set[char] = { 'A' .. 'Z'
+                         , 'a' .. 'z'
+                         , '0' .. '9'
+                         , '_'
+                         , '\x80' .. '\xFF'
+                         }
+
+  ## All whitespace characters.
+  wsChars*: set[char] = {'\t' .. '\r', ' '}
+
   sourceLanguageToStr*: array[SourceLanguage, string] = [ "none",
     "C",
     "C++",
