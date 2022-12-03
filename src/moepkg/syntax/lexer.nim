@@ -70,7 +70,8 @@ proc lexCurlyOpen*(lexer: var GeneralTokenizer, position: int,
 ## Lex a dash character (``-``).
 ##
 ## Depending on the respective language's lexing rules, determined by its flags,
-## a dash character can be either the introduction of a comment, a function, or
+## a dash character can be either the introduction of a comment, a function, the
+## beginning of a preprocessor block, the start of a built-in instruction or
 ## just a punctuation mark.
 
 proc lexDash*(lexer: var GeneralTokenizer, position: int,
@@ -155,6 +156,81 @@ proc lexHash*(lexer: var GeneralTokenizer, position: int,
     else:
       lexer.kind = gtPunctuation
       inc result
+
+
+
+## Lex an opening sharp bracket (``<``).
+##
+## Depending on the respective language's lexing rules, determined by its flags,
+## an opening sharp bracket might either be the introduction of a comment, a
+## function, an operator or just a punctuation mark.
+
+proc lexSharp*(lexer: var GeneralTokenizer, position: int,
+    flags: TokenizerFlags): int =
+  let nested = hasNestedComments in flags
+  var depth = 0
+  result = position
+
+  if lexer.buf[result] == '<':
+    if hasSharpFunction in flags:
+      lexer.kind = gtFunctionName
+    elif hasSharpOperator in flags:
+      lexer.kind = gtOperator
+    elif hasSharpPunctuation in flags:
+      lexer.kind = gtPunctuation
+    else:
+      lexer.kind = gtBuiltin
+
+    inc result
+
+    if lexer.buf[result] == '!':
+      inc result
+
+      if lexer.buf[result] == '-':
+        inc result
+
+        if lexer.buf[result] == '-':
+          inc result
+
+          if hasSharpBangDoubleDashComments in flags:
+            lexer.kind = gtLongComment
+
+            while true:
+              case lexer.buf[result]
+              of '\0':
+                break
+
+              of '<':
+                inc result
+
+                if lexer.buf[result] == '!':
+                  inc result
+
+                  if lexer.buf[result] == '-':
+                    inc result
+
+                    if lexer.buf[result] == '-':
+                      inc result
+
+                      if nested:
+                        inc depth
+
+              of '-':
+                inc result
+
+                if lexer.buf[result] == '-':
+                  inc result
+
+                  if lexer.buf[result] == '>':
+                    inc result
+
+                    if depth == 0:
+                      break
+                    elif nested:
+                      dec depth
+
+              else:
+                inc result
 
 
 
