@@ -108,7 +108,7 @@ proc lexDash*(lexer: var GeneralTokenizer, position: int,
       if lexer.buf[result] == '-':
         inc result
 
-        if hasTripleDashPreprocessor in flags:
+        if hasTripleDashPreprocessor in flags and lexer.buf[result] != '-':
           if hasPreprocessor in flags:
             lexer.kind = gtPreprocessor
           else:
