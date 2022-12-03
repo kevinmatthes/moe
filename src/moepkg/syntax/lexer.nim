@@ -151,7 +151,8 @@ proc lexSymbol*(lexer: var GeneralTokenizer, position: int): int =
 ## Lex all whitespace characters.
 ##
 ## Numerous languages either do not care at all for whitespace characters or
-## only focus on them for indentation.  Thus, they can be skipped savely.
+## only focus on them for indentation.  Thus, they can be skipped without any
+## problems.
 
 proc lexWhitespace*(lexer: var GeneralTokenizer, position: int): int =
   result = position
