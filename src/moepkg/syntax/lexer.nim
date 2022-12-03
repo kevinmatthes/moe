@@ -46,6 +46,63 @@ from lexer/hashlexer import
 # Procedures.
 #
 
+## Lex a backtick (`` ` ``).
+##
+## Depending on the respective language's lexing rules, determined by its flags,
+## a backtick can be either the beginning of a special string literal or just a
+## punctuation mark.
+
+proc lexBacktick*(lexer: var GeneralTokenizer, position: int,
+    flags: TokenizerFlags): int =
+  result = position
+
+  if lexer.buf[result] == '`':
+    if hasBacktickFramedExpressions in flags:
+      lexer.kind = gtSpecialVar
+      inc result
+
+      if lexer.buf[result] == '`':
+        inc result
+
+        if lexer.buf[result] == '`':
+          inc result
+
+          if hasTripleBacktickFramedExpressions in flags:
+            while true:
+              case lexer.buf[result]
+              of '\0':
+                break
+
+              of '`':
+                inc result
+
+                if lexer.buf[result] == '`':
+                  inc result
+
+                  if lexer.buf[result] == '`':
+                    inc result
+                    break
+
+              else:
+                inc result
+      else:
+        while true:
+          case lexer.buf[result]
+          of '\0':
+            break
+
+          of '`':
+            inc result
+            break
+
+          else:
+            inc result
+    else:
+      lexer.kind = gtPunctuation
+      inc result
+
+
+
 ## Lex an opening curly bracket (``{``).
 ##
 ## Depending on the respective language's lexing rules, determined by its flags,
