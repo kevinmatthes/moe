@@ -157,7 +157,7 @@ const tomlStr = """
   lineNumBg = "pink1"
   currentLineNum = "pink1"
   currentLineNumBg = "pink1"
-  # statsu bar
+  # status bar
   statusLineNormalMode = "pink1"
   statusLineNormalModeBg = "pink1"
   statusLineModeNormalMode = "pink1"
