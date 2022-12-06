@@ -539,7 +539,19 @@ proc makeColorThemeFromVSCodeThemeFile(jsonNode: JsonNode): EditorColor =
   setEditorColor gtStringLit:
     foreground:
       colorFromNode(getScope("string"){"foreground"})
+  setEditorColor gtBinNumber:
+    foreground:
+      colorFromNode(getScope("constant"){"foreground"})
   setEditorColor gtDecNumber:
+    foreground:
+      colorFromNode(getScope("constant"){"foreground"})
+  setEditorColor gtFloatNumber:
+    foreground:
+      colorFromNode(getScope("constant"){"foreground"})
+  setEditorColor gtHexNumber:
+    foreground:
+      colorFromNode(getScope("constant"){"foreground"})
+  setEditorColor gtOctNumber:
     foreground:
       colorFromNode(getScope("constant"){"foreground"})
   setEditorColor gtComment:
