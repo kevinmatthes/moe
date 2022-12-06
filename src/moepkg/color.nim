@@ -634,7 +634,7 @@ var ColorThemeTable*: array[ColorTheme, EditorColor] = [
     lineNumBg: default,
     currentLineNum: teal,
     currentLineNumBg: default,
-    # statsu bar
+    # status bar
     statusLineNormalMode: white,
     statusLineNormalModeBg: blue,
     statusLineModeNormalMode: black,
@@ -769,7 +769,7 @@ var ColorThemeTable*: array[ColorTheme, EditorColor] = [
     lineNumBg: default,
     currentLineNum: teal,
     currentLineNumBg: default,
-    # statsu line
+    # status line
     statusLineNormalMode: white,
     statusLineNormalModeBg: blue,
     statusLineModeNormalMode: black,
@@ -904,7 +904,7 @@ var ColorThemeTable*: array[ColorTheme, EditorColor] = [
     lineNumBg: default,
     currentLineNum: teal,
     currentLineNumBg: default,
-    # statsu line
+    # status line
     statusLineNormalMode: white,
     statusLineNormalModeBg: blue,
     statusLineModeNormalMode: black,
@@ -1039,7 +1039,7 @@ var ColorThemeTable*: array[ColorTheme, EditorColor] = [
     lineNumBg: default,
     currentLineNum: black,
     currentLineNumBg: default,
-    # statsu line
+    # status line
     statusLineNormalMode: blue,
     statusLineNormalModeBg: gray54,
     statusLineModeNormalMode: white,
@@ -1174,7 +1174,7 @@ var ColorThemeTable*: array[ColorTheme, EditorColor] = [
     lineNumBg: default,
     currentLineNum: deepPink1_1,
     currentLineNumBg: default,
-    # statsu line
+    # status line
     statusLineNormalMode: black,
     statusLineNormalModeBg: deepPink1_1,
     statusLineModeNormalMode: black,
