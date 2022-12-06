@@ -592,40 +592,44 @@ type EditorColorPair* = enum
   specialVar = 33
   builtin = 34
   stringLit = 35
-  decNumber = 36
-  comment = 37
-  longComment = 38
-  whitespace = 39
-  preprocessor = 40
-  pragma = 41
+  binNumber = 36
+  decNumber = 37
+  floatNumber = 38
+  hexNumber = 39
+  octNumber = 40
+  comment = 41
+  longComment = 42
+  whitespace = 43
+  preprocessor = 44
+  pragma = 45
 
   # filer mode
-  currentFile = 42
-  file = 43
-  dir = 44
-  pcLink = 45
+  currentFile = 46
+  file = 47
+  dir = 48
+  pcLink = 49
   # pop up window
-  popUpWindow = 46
-  popUpWinCurrentLine = 47
+  popUpWindow = 50
+  popUpWinCurrentLine = 51
   # replace text highlighting
-  replaceText = 48
+  replaceText = 52
   # pair of paren highlighting
-  parenText = 49
+  parenText = 53
   # other uses current word
-  currentWord = 50
+  currentWord = 54
   # full width space
-  highlightFullWidthSpace = 51
+  highlightFullWidthSpace = 55
   # trailing spaces
-  highlightTrailingSpaces = 52
+  highlightTrailingSpaces = 56
   # reserved words
-  reservedWord = 53
+  reservedWord = 57
   # Backup manager
-  currentBackup = 54
+  currentBackup = 58
   # diff viewer
-  addedLine = 55
-  deletedLine = 56
+  addedLine = 59
+  deletedLine = 60
   # configuration mode
-  currentSetting = 57
+  currentSetting = 61
 
 var ColorThemeTable*: array[ColorTheme, EditorColor] = [
   config: EditorColor(
