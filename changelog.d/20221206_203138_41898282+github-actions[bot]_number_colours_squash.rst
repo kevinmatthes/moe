@@ -2,11 +2,15 @@
 ..
 .. Uncomment the header that is right (remove the leading dots).
 ..
-.. Added
-.. .....
-..
-.. - A bullet item for the Added category.
-..
+
+.. _#1553: https://github.com/fox0430/moe/pull/1553
+
+Added
+.....
+
+- `#1553`_ syntax highlighting:  colours for binary, floating point,
+  hexadecimal, and octal numbers
+
 .. Changed
 .. .......
 ..
