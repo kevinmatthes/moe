@@ -221,7 +221,11 @@ const tomlStr = """
   gtSpecialVar = "pink1"
   gtBuiltin = "pink1"
   gtStringLit = "pink1"
+  gtBinNumber = "pink1"
   gtDecNumber = "pink1"
+  gtFloatNumber = "pink1"
+  gtHexNumebr = "pink1"
+  gtOctNumber = "pink1"
   gtComment = "pink1"
   gtLongComment = "pink1"
   gtWhitespace = "pink1"
@@ -463,7 +467,11 @@ suite "Parse configuration file":
     check ColorThemeTable[theme].gtSpecialVar == Color.pink1
     check ColorThemeTable[theme].gtBuiltin == Color.pink1
     check ColorThemeTable[theme].gtStringLit == Color.pink1
+    check ColorThemeTable[theme].gtBinNumber == Color.pink1
     check ColorThemeTable[theme].gtDecNumber == Color.pink1
+    check ColorThemeTable[theme].gtFloatNumber == Color.pink1
+    check ColorThemeTable[theme].gtHexNumber == Color.pink1
+    check ColorThemeTable[theme].gtOctNumber == Color.pink1
     check ColorThemeTable[theme].gtComment == Color.pink1
     check ColorThemeTable[theme].gtLongComment == Color.pink1
     check ColorThemeTable[theme].gtWhitespace == Color.pink1
