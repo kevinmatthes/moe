@@ -1653,8 +1653,20 @@ proc parseSettingsFile*(settings: TomlValueRef): EditorSettings =
     if settings["Theme"].contains("gtStringLit"):
       ColorThemeTable[ColorTheme.config].gtStringLit = color("gtStringLit")
 
+    if settings["Theme"].contains("gtBinNumber"):
+      ColorThemeTable[ColorTheme.config].gtBinNumber = color("gtBinNumber")
+
     if settings["Theme"].contains("gtDecNumber"):
       ColorThemeTable[ColorTheme.config].gtDecNumber = color("gtDecNumber")
+
+    if settings["Theme"].contains("gtFloatNumber"):
+      ColorThemeTable[ColorTheme.config].gtFloatNumber = color("gtFloatNumber")
+
+    if settings["Theme"].contains("gtHexNumber"):
+      ColorThemeTable[ColorTheme.config].gtHexNumber = color("gtHexNumber")
+
+    if settings["Theme"].contains("gtOctNumber"):
+      ColorThemeTable[ColorTheme.config].gtOctNumber = color("gtOctNumber")
 
     if settings["Theme"].contains("gtComment"):
       ColorThemeTable[ColorTheme.config].gtComment = color("gtComment")
