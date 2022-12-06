@@ -481,7 +481,11 @@ type EditorColor* = object
   gtStringLit*: Color
   gtSpecialVar*: Color
   gtBuiltin*: Color
+  gtBinNumber*: Color
   gtDecNumber*: Color
+  gtFloatNumber*: Color
+  gtHexNumber*: Color
+  gtOctNumber*: Color
   gtComment*: Color
   gtLongComment*: Color
   gtWhitespace*: Color
@@ -702,7 +706,11 @@ var ColorThemeTable*: array[ColorTheme, EditorColor] = [
     gtStringLit: yellow,
     gtSpecialVar: green,
     gtBuiltin: yellow,
+    gtBinNumber: aqua,
     gtDecNumber: aqua,
+    gtFloatNumber: aqua,
+    gtHexNumber: aqua,
+    gtOctNumber: aqua,
     gtComment: gray,
     gtLongComment: gray,
     gtWhitespace: gray,
@@ -833,7 +841,11 @@ var ColorThemeTable*: array[ColorTheme, EditorColor] = [
     gtStringLit: yellow,
     gtSpecialVar: green,
     gtBuiltin: yellow,
+    gtBinNumber: aqua,
     gtDecNumber: aqua,
+    gtFloatNumber: aqua,
+    gtHexNumber: aqua,
+    gtOctNumber: aqua,
     gtComment: gray,
     gtLongComment: gray,
     gtWhitespace: gray,
@@ -964,7 +976,11 @@ var ColorThemeTable*: array[ColorTheme, EditorColor] = [
     gtStringLit: yellow,
     gtSpecialVar: green,
     gtBuiltin: yellow,
+    gtBinNumber: aqua,
     gtDecNumber: aqua,
+    gtFloatNumber: aqua,
+    gtHexNumber: aqua,
+    gtOctNumber: aqua,
     gtComment: gray,
     gtLongComment: gray,
     gtWhitespace: gray,
@@ -1095,7 +1111,11 @@ var ColorThemeTable*: array[ColorTheme, EditorColor] = [
     gtStringLit: purple_1,
     gtSpecialVar: green,
     gtBuiltin: yellow,
+    gtBinNumber: aqua,
     gtDecNumber: aqua,
+    gtFloatNumber: aqua,
+    gtHexNumber: aqua,
+    gtOctNumber: aqua,
     gtComment: gray,
     gtLongComment: gray,
     gtWhitespace: gray,
@@ -1226,7 +1246,11 @@ var ColorThemeTable*: array[ColorTheme, EditorColor] = [
     gtStringLit: purple_1,
     gtSpecialVar: green,
     gtBuiltin: aqua,
+    gtBinNumber: aqua,
     gtDecNumber: aqua,
+    gtFloatNumber: aqua,
+    gtHexNumber: aqua,
+    gtOctNumber: aqua,
     gtComment: gray,
     gtLongComment: gray,
     gtWhitespace: gray,
@@ -1412,8 +1436,20 @@ proc setCursesColor*(editorColor: EditorColor) =
     setColorPair(EditorColorPair.stringLit,
                  editorColor.gtStringLit,
                  editorColor.editorBg)
+    setColorPair(EditorColorPair.binNumber,
+                 editorColor.gtBinNumber,
+                 editorColor.editorBg)
     setColorPair(EditorColorPair.decNumber,
                  editorColor.gtDecNumber,
+                 editorColor.editorBg)
+    setColorPair(EditorColorPair.floatNumber,
+                 editorColor.gtFloatNumber,
+                 editorColor.editorBg)
+    setColorPair(EditorColorPair.hexNumber,
+                 editorColor.gtHexNumber,
+                 editorColor.editorBg)
+    setColorPair(EditorColorPair.octNumber,
+                 editorColor.gtOctNumber,
                  editorColor.editorBg)
     setColorPair(EditorColorPair.comment,
                  editorColor.gtComment,
@@ -1587,8 +1623,16 @@ proc getColorFromEditorColorPair*(theme: ColorTheme,
     return (editorColor.gtBuiltin, editorColor.editorBg)
   of EditorColorPair.stringLit:
     return (editorColor.gtStringLit, editorColor.editorBg)
+  of EditorColorPair.binNumber:
+    return (editorColor.gtBinNumber, editorColor.editorBg)
   of EditorColorPair.decNumber:
     return (editorColor.gtDecNumber, editorColor.editorBg)
+  of EditorColorPair.floatNumber:
+    return (editorColor.gtFloatNumber, editorColor.editorBg)
+  of EditorColorPair.hexNumber:
+    return (editorColor.gtHexNumber, editorColor.editorBg)
+  of EditorColorPair.octNumber:
+    return (editorColor.gtOctNumber, editorColor.editorBg)
   of EditorColorPair.comment:
     return (editorColor.gtComment, editorColor.editorBg)
   of EditorColorPair.longComment:
