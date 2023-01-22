@@ -1,3 +1,5 @@
+.. _#1596: https://github.com/fox0430/moe/pull/1596
+
 .. A new scriv changelog fragment.
 ..
 .. Uncomment the header that is right (remove the leading dots).
@@ -7,11 +9,11 @@
 ..
 .. - A bullet item for the Added category.
 ..
-.. Changed
-.. .......
-..
-.. - A bullet item for the Changed category.
-..
+Changed
+.......
+
+- `#1596`_ CI:  adjust workflows due to Scriv updates
+
 .. Deprecated
 .. ..........
 ..
