@@ -151,20 +151,39 @@ proc shellNextToken*(g: var GeneralTokenizer) =
     of '1'..'9':
       pos = generalNumber(g, pos)
       if g.buf[pos] in {'A'..'Z', 'a'..'z'}: inc(pos)
-    of '\"', '\'':
+    of '\"':
       inc(pos)
       g.kind = gtStringLit
       while true:
         case g.buf[pos]
         of '\0':
           break
-        of '\"', '\'':
+        of '\"':
           inc(pos)
           break
         of '\\':
           g.state = g.kind
           break
         else: inc(pos)
+    of '\'':
+      inc pos
+      g.kind = gtStringLit
+
+      while true:
+        case g.buf[pos]
+        of '\0':
+          break
+
+        of '\'':
+          inc pos
+          break
+
+        of '\\':
+          g.state = g.kind
+          break
+
+        else:
+          inc pos
     of '(', ')', ':', ',', ';', '.':
       inc(pos)
       g.kind = gtPunctuation
