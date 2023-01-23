@@ -27,7 +27,6 @@ This project's goals are easily customizable, high productivity, user friendly, 
 
 - Syntax highlighting:
 
-  - Bash
   - C
   - C++
   - C#
@@ -38,6 +37,8 @@ This project's goals are easily customizable, high productivity, user friendly, 
   - Nim
   - Python
   - Rust
+  - Shell languages:
+    - Bash
   - YAML
 
 - Auto-complete
