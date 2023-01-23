@@ -165,7 +165,7 @@ proc shellNextToken*(g: var GeneralTokenizer) =
           g.state = g.kind
           break
         else: inc(pos)
-    of '(', ')', '[', ']', '{', '}', ':', ',', ';', '.':
+    of '(', ')', ':', ',', ';', '.':
       inc(pos)
       g.kind = gtPunctuation
     of '\0':
