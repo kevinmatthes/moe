@@ -229,7 +229,7 @@ proc isKeyword*(x: openArray[string], y: string): int =
 
 import syntaxc, syntaxcpp, syntaxcsharp, syntaxhaskell, syntaxjava,
        syntaxjavascript, syntaxmarkdown, syntaxnim, syntaxpython, syntaxrust,
-       syntaxyaml
+       syntaxshell, syntaxyaml
 proc getNextToken*(g: var GeneralTokenizer, lang: SourceLanguage) =
   case lang
   of langC: cNextToken(g)
@@ -243,5 +243,6 @@ proc getNextToken*(g: var GeneralTokenizer, lang: SourceLanguage) =
   of langNone: assert false
   of langPython: pythonNextToken(g)
   of langRust: rustNextToken(g)
+  of langShell: shellNextToken(g)
   of langYaml: yamlNextToken(g)
   else: discard
