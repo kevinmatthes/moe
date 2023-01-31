@@ -1,3 +1,4 @@
+.. _#1601: https://github.com/fox0430/moe/pull/1601
 .. A new scriv changelog fragment.
 ..
 .. Uncomment the header that is right (remove the leading dots).
@@ -7,11 +8,11 @@
 ..
 .. - A bullet item for the Added category.
 ..
-.. Changed
-.. .......
-..
-.. - A bullet item for the Changed category.
-..
+Changed
+.......
+
+- `#1601`_ documentation:  update years in copyright lines to 2023
+
 .. Deprecated
 .. ..........
 ..
