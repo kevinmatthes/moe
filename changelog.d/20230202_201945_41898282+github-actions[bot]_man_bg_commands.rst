@@ -1,11 +1,12 @@
+.. _#1607: https://github.com/fox0430/moe/pull/1607
 .. A new scriv changelog fragment.
 ..
 .. Uncomment the header that is right (remove the leading dots).
 ..
-.. Added
-.. .....
-..
-.. - A bullet item for the Added category.
+Added
+.....
+
+- `#1607`_ internal commands:  ``:bg``, ``:man``
 ..
 .. Changed
 .. .......
