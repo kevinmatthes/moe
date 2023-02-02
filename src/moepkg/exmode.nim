@@ -270,10 +270,13 @@ proc isStartDebugMode(command: seq[seq[Rune]]): bool {.inline.} =
 proc isBuildCommand(command: seq[seq[Rune]]): bool {.inline.} =
   return command.len == 1 and cmpIgnoreCase($command[0], "build") == 0
 
+proc isBackgroundCommand(command: seq[seq[Rune]]): bool {.inline.} =
+  return command.len == 1 and cmpIgnoreCase($command[0], "bg") == 0
+
 proc startDebugMode(status: var EditorStatus) =
   status.changeMode(currentBufStatus.prevMode)
 
-  # Split window and move to new window
+  # Split window and move to new windowIndex
   status.verticalSplitWindow
   status.resize
 
@@ -1091,6 +1094,15 @@ proc shellCommand(status: var EditorStatus, shellCommand: string) =
 
   status.changeMode(currentBufStatus.prevMode)
 
+proc backgroundCommand(status: var EditorStatus) =
+  saveCurrentTerminalModes()
+  exitUi()
+  discard execShellCmd("printf \"Press Enter\"")
+  discard execShellCmd("read _")
+  restoreTerminalModes()
+  status.commandLine.clear
+  status.changeMode(currentBufStatus.prevMode)
+
 proc listAllBufferCommand(status: var EditorStatus) =
   let swapCurrentBufferIndex = currentMainWindowNode.bufferIndex
   status.addNewBufferInCurrentWin
@@ -1248,6 +1260,7 @@ proc isExCommand*(command: Runes): InputState =
        isWriteAndQuitCommand(cmd) or
        isForceQuitCommand(cmd) or
        isShellCommand(cmd) or
+       isBackgroundCommand(cmd) or
        isReplaceCommand(cmd) or
        isChangeNextBufferCommand(cmd) or
        isChangePreveBufferCommand(cmd) or
@@ -1342,6 +1355,8 @@ proc exModeCommand*(status: var EditorStatus, command: seq[seq[Rune]]) =
     status.forceQuitCommand
   elif isShellCommand(command):
     status.shellCommand(command.join(" ").substr(1))
+  elif isBackgroundCommand(command):
+    status.backgroundCommand
   elif isReplaceCommand(command):
     status.replaceBuffer(command[0][3 .. command[0].high])
   elif isChangeNextBufferCommand(command):
