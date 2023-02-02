@@ -237,6 +237,13 @@ proc isForceQuitCommand(command: seq[seq[Rune]]): bool {.inline.} =
 proc isShellCommand(command: seq[seq[Rune]]): bool {.inline.} =
   return command.len >= 1 and command[0][0] == ru'!'
 
+proc isBackgroundCommand(command: seq[seq[Rune]]): bool {.inline.} =
+  return command.len == 1 and cmpIgnoreCase($command[0], "bg") == 0
+
+proc isManualCommand(command: seq[seq[Rune]]): bool {.inline.} =
+  # TODO:  Configure a default manual page to show on `:man`.
+  return command.len > 1 and cmpIgnoreCase($command[0], "man") == 0
+
 proc isReplaceCommand(command: seq[seq[Rune]]): bool {.inline.} =
   return command.len >= 1 and
          command[0].len > 4 and
@@ -270,13 +277,10 @@ proc isStartDebugMode(command: seq[seq[Rune]]): bool {.inline.} =
 proc isBuildCommand(command: seq[seq[Rune]]): bool {.inline.} =
   return command.len == 1 and cmpIgnoreCase($command[0], "build") == 0
 
-proc isBackgroundCommand(command: seq[seq[Rune]]): bool {.inline.} =
-  return command.len == 1 and cmpIgnoreCase($command[0], "bg") == 0
-
 proc startDebugMode(status: var EditorStatus) =
   status.changeMode(currentBufStatus.prevMode)
 
-  # Split window and move to new windowIndex
+  # Split window and move to new window
   status.verticalSplitWindow
   status.resize
 
@@ -1103,6 +1107,17 @@ proc backgroundCommand(status: var EditorStatus) =
   status.commandLine.clear
   status.changeMode(currentBufStatus.prevMode)
 
+proc manualCommand(status: var EditorStatus, manualInvocationCommand: string) =
+  saveCurrentTerminalModes()
+  exitUi()
+
+  # TODO:  Configure a default manual page to show on `:man`.
+  discard execShellCmd(manualInvocationCommand)
+
+  restoreTerminalModes()
+  status.commandLine.clear
+  status.changeMode(currentBufStatus.prevMode)
+
 proc listAllBufferCommand(status: var EditorStatus) =
   let swapCurrentBufferIndex = currentMainWindowNode.bufferIndex
   status.addNewBufferInCurrentWin
@@ -1261,6 +1276,7 @@ proc isExCommand*(command: Runes): InputState =
        isForceQuitCommand(cmd) or
        isShellCommand(cmd) or
        isBackgroundCommand(cmd) or
+       isManualCommand(cmd) or
        isReplaceCommand(cmd) or
        isChangeNextBufferCommand(cmd) or
        isChangePreveBufferCommand(cmd) or
@@ -1357,6 +1373,8 @@ proc exModeCommand*(status: var EditorStatus, command: seq[seq[Rune]]) =
     status.shellCommand(command.join(" ").substr(1))
   elif isBackgroundCommand(command):
     status.backgroundCommand
+  elif isManualCommand(command):
+    status.manualCommand(command.join(" "))
   elif isReplaceCommand(command):
     status.replaceBuffer(command[0][3 .. command[0].high])
   elif isChangeNextBufferCommand(command):
