@@ -1,3 +1,4 @@
+.. _#1630: https://github.com/fox0430/moe/pull/1630
 .. A new scriv changelog fragment.
 ..
 .. Uncomment the header that is right (remove the leading dots).
@@ -17,11 +18,11 @@
 ..
 .. - A bullet item for the Deprecated category.
 ..
-.. Fixed
-.. .....
-..
-.. - A bullet item for the Fixed category.
-..
+Fixed
+.....
+
+- `#1630`_ syntax highlighting:  odd edge case of Markdown comments
+
 .. Removed
 .. .......
 ..
