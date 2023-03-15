@@ -104,7 +104,8 @@ body:
         2. Step two
         3. Step three
         ...
-    required: true
+    validations:
+      required: true
   - type: textarea
     attributes:
       label: Detailed Description
