@@ -2,11 +2,12 @@
 ..
 .. Uncomment the header that is right (remove the leading dots).
 ..
-.. Added
-.. .....
-..
-.. - A bullet item for the Added category.
-..
+.. _#1670: https://github.com/fox0430/moe/pull/1670
+Added
+.....
+
+- `#1670`_ repository:  add bug report form
+
 .. Changed
 .. .......
 ..
